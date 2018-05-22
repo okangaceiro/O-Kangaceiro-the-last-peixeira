@@ -344,7 +344,7 @@ void titlend(){
     cursor = load_bitmap("img/cursor.bmp", NULL);
      while(!exit_program && !exit_screen){
 
-            if(comendo>=285){
+            if(comendo>=285 && vidas>0){
 
                     for (i = 0; i < 5; i++){
                         draw_sprite(buffer, fundoendgame, 0, 0);
