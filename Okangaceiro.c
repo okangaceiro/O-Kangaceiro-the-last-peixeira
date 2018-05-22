@@ -163,6 +163,7 @@ void gamescreen(){
 		som = 0;
         if(vidas<=0){
             play_midi(song,TRUE);
+            continua = 0;
             exit_screen = TRUE;
             screen_state = ENDGAME;
 		}
@@ -172,6 +173,8 @@ void gamescreen(){
                 p.y = 23;
                 vida = 0;
                 inicio = 0;
+                continua = 0;
+                play_midi(song,TRUE);
                 exit_screen = TRUE;
                 screen_state = ENDGAME;
             }
