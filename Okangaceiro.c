@@ -20,6 +20,8 @@ void titleload();
 void titlend();
 
 //Variáveis Globais
+
+int continua = 0;
 int sai    = 0;
 int som = 0;
 int vida = 0;
@@ -106,6 +108,7 @@ void gamescreen(){
 	press = load_bitmap("img/press.bmp", NULL);
 
 	int i;
+
 	for (i = 0; i< 4; i++)
     {
         f[i].wx = 0;
@@ -132,6 +135,7 @@ void gamescreen(){
 		}
 		if (vida || inicio) masked_blit(itens, buffer, p.wx, p.wy, p.x*28-8, p.y*21-7, p.w, p.h);
 		// Quando inicia, coloca os monstros no local de inicio.
+
 		if(inicio)
         {
             for (i = 0; i< 4; i++)
@@ -437,6 +441,7 @@ void titleload(){
 }
 
 void restart(){
+
     if (morre || !vida) stop_sample(fase);
 
     if (inicio)
@@ -449,6 +454,7 @@ void restart(){
         inicio = 0;
         fase1 = 0;
     }
+
     if(key[KEY_SPACE] && !vida)
     {
         stop_midi();
@@ -456,7 +462,7 @@ void restart(){
     }
     if (morre && vida)
     {
-         int i;
+        int i;
         vida--;
         vidas--;
         rest(500);
@@ -482,10 +488,11 @@ void restart(){
         p.y = 23;
         p.dir = 4;
         morre = 0;
-        for(i = 0; i< 4 && key[KEY_SPACE]; i++)
+        for(i = 0; i < 4; i++)
         {
-        f[i].x = 12 + i;
-        f[i].y = 14;
+            f[i].x = 12 + i;
+            f[i].y = 14;
+            continua = 1;
         }
     }
 }
@@ -569,12 +576,15 @@ void inimigos(){
 
     if(f[i].dir==0 || f[i].dir==1) masked_blit(itens, buffer, f[i].wx, f[i].wy, f[i].x*28 - 8, f[i].y * 21 - 7, f[i].w, f[i].h);
     else if(f[i].dir==2 || f[i].dir==3) masked_blit(itens, buffer, f[i].wx+60, f[i].wy, f[i].x*28 - 8, f[i].y * 21 - 7, f[i].w, f[i].h);
+
     //colisão
-    if(vidas && (p.x == f[i].x && p.y == f[i].y || antX == f[i].x && antY == f[i].y))
+    if(vidas && (p.x == f[i].x && p.y == f[i].y || antX == f[i].x && antY == f[i].y) && continua == 1)
     {
+
         morre = 1;
 
     }
+
     }
 
 }
