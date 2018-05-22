@@ -11,6 +11,7 @@ void restart();
 void mapa(int);
 void control();
 void fecha_programa();
+//enumeracao das telas
 enum{ MAINMENU, GAMESCREEN, TITLEHELP, TITLECREDITS, LOADING, ENDGAME, EXITGAME};
 void mainmenu();
 void titlecredits();
@@ -47,8 +48,8 @@ int main() {
 
     //Iniciação
 	allegro_init();
-    install_keyboard();
-    install_mouse();
+    	install_keyboard();
+    	install_mouse();
 	set_color_depth(32);
 	set_window_title("O Kangaceiro");
 	set_close_button_callback(sair);
@@ -61,9 +62,10 @@ int main() {
     set_close_button_callback(fecha_programa);
 
       screen_state = MAINMENU;
-    song = load_midi("som/Take_Me_Home_Country_Roads.mid");
+	//musica tema
+    	song = load_midi("som/Take_Me_Home_Country_Roads.mid");
 	//Variáveis Locais
-    play_midi(song,TRUE);
+    	play_midi(song,TRUE);
 	while (!exit_program)
 	{
 	    if(screen_state == MAINMENU)
@@ -135,7 +137,6 @@ void gamescreen(){
 		}
 		if (vida || inicio) masked_blit(itens, buffer, p.wx, p.wy, p.x*28-8, p.y*21-7, p.w, p.h);
 		// Quando inicia, coloca os monstros no local de inicio.
-
 		if(inicio)
         {
             for (i = 0; i< 4; i++)
@@ -196,8 +197,8 @@ void mainmenu(){
 	menu = load_bitmap("img/telas/MenuPac.bmp", NULL);
 	cursor = load_bitmap("img/cursor.bmp", NULL);
 	newgame = load_bitmap("img/telas/newgame.bmp", NULL);
-    help = load_bitmap("img/telas/help.bmp", NULL);
-    credits = load_bitmap("img/telas/credits.bmp", NULL);
+    	help = load_bitmap("img/telas/help.bmp", NULL);
+    	credits = load_bitmap("img/telas/credits.bmp", NULL);
 
 
 
