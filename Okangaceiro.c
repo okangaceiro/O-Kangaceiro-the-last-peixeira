@@ -59,7 +59,7 @@ int main() {
     set_close_button_callback(fecha_programa);
 
       screen_state = MAINMENU;
-    song = load_midi("som/AllStar.mid");
+    song = load_midi("som/ShootingStar.mid");
 	//Variáveis Locais
     play_midi(song,TRUE);
 	while (!exit_program)
