@@ -59,7 +59,7 @@ int main() {
     set_close_button_callback(fecha_programa);
 
       screen_state = MAINMENU;
-    song = load_midi("som/ShootingStar.mid");
+    song = load_midi("som/Take_Me_Home_Country_Roads.mid");
 	//Variáveis Locais
     play_midi(song,TRUE);
 	while (!exit_program)
@@ -101,7 +101,7 @@ void gamescreen(){
 	comecou = load_sample("som/inicio.wav");
 	ponto = load_sample("som/comendo.wav");
 	fase = load_sample("som/som.wav");
-	song = load_midi("som/ShootingStar.mid");
+	song = load_midi("som/Take_Me_Home_Country_Roads.mid");
 	morrendo = load_sample("som/morre.wav");
 	press = load_bitmap("img/press.bmp", NULL);
 
