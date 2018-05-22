@@ -274,7 +274,6 @@ void titlehelp(){
     while(!exit_program && !exit_screen)
     {
           draw_sprite(buffer, menuhelp, 0, 0);
-          //rectfill(buffer, 20, 20, 75, 70, makecol(255,255,0));
           if(mouse_x > 20 && mouse_x < 75 && mouse_y > 20 && mouse_y < 70)
             {
                 if(mouse_b == 1)
@@ -360,7 +359,6 @@ void titlend(){
             else if(vidas<=0){
 
                  draw_sprite(buffer, gameover, 0, 0);
-                 //rectfill(buffer, 335, 286, 717, 357, makecol(255,255,0));
                  if(mouse_x > 335 && mouse_x < 717 && mouse_y > 286 && mouse_y < 357)
                  {
                     draw_sprite(buffer, gameover1, 0, 0);
@@ -403,7 +401,6 @@ void titleload(){
     while(!exit_program && !exit_screen){
 
             int i, j;
-            //rest(5);
             if(contador == 4)
             {
                     exit_screen = TRUE;
@@ -422,10 +419,8 @@ void titleload(){
                             masked_blit(load2, buffer, j*100, 0, (SCREEN_W/2)-54, SCREEN_H/2, 100, 93);
                             draw_sprite(screen, buffer,0,0);
                             rest(200);
-                            //clear(buffer);
             }
             contador++;
-      //rectfill(buffer, 0, 0, 1000, 1000, makecol(0,0,0));
       draw_sprite(screen, buffer, 0, 0);
       clear(buffer);
 
